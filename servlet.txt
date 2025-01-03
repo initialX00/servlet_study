@@ -1,0 +1,59 @@
+수업순서
+1. java 기초
+2. HTML, CSS, JS
+3. Servlet, JSP
+4. MySQL(Database) - AWS RDS
+5. Java JDBC(JACA Database Connector)
+6. React(JS기반) - 배포 AWS S3 -> https
+7. ServerStateManagement(React Query)
+8. ClientStateManagement(Recoil)
+9. SpringBoot - AOP, Validation, SpringBoot Security JWT, Swagger, EMail, payment(portOne)
+10. MybatisFramework(JDBC 라이브러리), JPA
+11. 배포 - ec2(우분투) + Docker + nginx + github Actions + https
+
+
+
+===========
+
+
+
+
+확장자jsp는 자바에 html을 적용한것
+
+확장자xml은 세팅
+
+
+
+http://localhost:8080/servlet_study_war/index.jsp
+index.jsp은 생략된다.
+주소에서 laclhost는 this와 같은 의미를 지닌다. 로컬이 아닌경우 정상적인 ip가 뜬다.
+각 프로그램별로 8080등의 서버주소가 있다.
+폴더경로처럼 /를 통해 들어갈 수가 있다.
+
+wepapp쪽에서 html관련이 생성하고
+java쪽에서 java관련을 생성하자.
+
+
+
+java -> tomcat서버 -> servlet
+
+servlet은 요청과 응답을 담당하는 클래스 객체이다.
+
+
+수가지의 요청 중에
+GET POST PUT DLELETE 4가지를 주로 쓴다. (CRUD)
+
+get 불러오기
+
+
+html 주소에서 ? key=value를 입력할 수 있다. &를 입력해 여러개 입력가능
+
+req 요청, resp 응답
+
+예전에는 응답은 html코드를 했지만,
+JSP로 편의성이 증대하여 이제는 모든 응답은 JSON으로 한다.
+
+
+
+
+===========

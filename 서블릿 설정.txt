@@ -1,0 +1,46 @@
+ㅇ tomcat 9버전 zip 다운 - C:\korea-gpt\apache-tomcat-9.0.98 오도록 압축풀기
+
+ㅇ 새프로젝트 JakartaEE로 생성
+
+ㅇ template: web application
+
+ㅇ template경로 C:\korea-gpt\apache-tomcat-9.0.98 설정
+
+ㅇ new - tomcat server
+
+ㅇ next 이후 javaEE8로 선택
+
+
+ㅇ pom.xml에서 아래와 같이 변경
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+    </properties>
+
+  <dependencies> 내용물 삭제
+
+
+
+ㅇ mvn에서 Tomcat JSP API 검색 - 9.0.98 선택
+
+ㅇ pom.xml에 아래 입력
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+    </properties>
+    
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jsp-api</artifactId>
+            <version>9.0.98</version>
+        </dependency>
+    </dependencies>
+
+
+ㅇ 실행설정 : tomcat local - deployment - artifact - servlet_study:war
+
+ㅇ 한글오류 수정 : help - edit vm - 입력하기( -Dfile.encoding=UTF-8 )
+    실행edit - vm options에서 -Dfile.encoding=UTF-8
