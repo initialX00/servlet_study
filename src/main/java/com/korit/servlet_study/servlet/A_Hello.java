@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/hello")  //주소설정
-public class Hello extends HttpServlet {
+public class A_Hello extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher("/WEB-INF/hello.jsp").forward(req, resp);
+        //doGet으로 불러오기
+        req.getRequestDispatcher("/WEB-INF/a_hello.jsp").forward(req, resp);
+        //해당 명령어로 접근
     }
 }

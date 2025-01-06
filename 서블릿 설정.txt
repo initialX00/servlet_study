@@ -44,3 +44,20 @@
 
 ㅇ 한글오류 수정 : help - edit vm - 입력하기( -Dfile.encoding=UTF-8 )
     실행edit - vm options에서 -Dfile.encoding=UTF-8
+
+
+
+ㅇ 롬복도 추가하기
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.36</version>
+    <scope>provided</scope>
+</dependency>
+
+ㅇ jstl 추가하기(스크립틀리 개편)
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>

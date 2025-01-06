@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet("/helloservlet")  //주소설정
-public class HelloServlet extends HttpServlet {
+public class A_HelloServlet extends HttpServlet {
 
     String name = "aaa";
     @Override
@@ -25,6 +25,6 @@ public class HelloServlet extends HttpServlet {
                 "</html>");
 
 
-        req.getRequestDispatcher("/WEB-INF/hello.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/a_hello.jsp").forward(req, resp);
     }
 }
