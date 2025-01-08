@@ -6,14 +6,16 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @WebServlet("/user")
-public class E_UserServlet {
+public class E_UserServlet extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
         List<E_User> users = new ArrayList<>();
@@ -26,32 +28,44 @@ public class E_UserServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String search = request.getParameter("searchValue");
+        String searchValue = request.getParameter("searchValue");
         ServletContext servletContext = request.getServletContext();
         List<E_User> users = (List<E_User>) servletContext.getAttribute("users");
 
         if(searchValue != null) {
             if(searchValue.isBlank()) {
-                request.setAttribute("users", users.stream().
-                        filter(u -> u.get()));
+                request.setAttribute("users", users.stream()
+                        .filter(user -> user.getUsername()
+                                .contains(searchValue))
+                        .collect(Collectors.toList()));
             }
         }
+        request.getRequestDispatcher("/WEB-INF/e_user.jsp").forward(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
+        E_User user = E_User.builder()
+                .username(request.getParameter("username"))
+                .password(request.getParameter("password"))
+                .name(request.getParameter("name"))
+                .email(request.getParameter("email"))
+                .build();
 
-        List<String> datas = List.of(username, password, name, eamil);
-        for(String data : datas) {
-            if(data == null) {
-                response.getWriter().println("<script>alert()</script>");
-            }
-            if(data.isBlank()) {
+        ServletContext servletContext = request.getServletContext();
 
-            }
+        List<E_User> users = (List<E_User>) servletContext.getAttribute("users");
+        if(users.stream().filter(u -> u.getUsername()
+                .equals(user.getUsername()))
+                .collect(Collectors.toList()).size() > 0) {
+            response.setContentType("text/html");
+            response.getWriter().println("<script>" +
+                    "alert('이미 존재하는 사용자 이름입니다.');" +
+                    "history.back();" +
+                    "</script>");
+            return;
         }
+        users.add(user);
+
+        response.sendRedirect("http://localhost:8080/servlet_study_war/user");
     }
 }

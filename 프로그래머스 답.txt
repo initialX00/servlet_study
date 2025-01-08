@@ -1,5 +1,4 @@
 월간코드챌린지 - 나머지가 1이 되는 수 찾기
-
     int answer = 0;
     int x = 2;
     while(true) {
@@ -16,7 +15,6 @@
 
 
 월간코드챌린지 - 없는숫자 더하기
-
     int answer = 45;
     for(int num : numbers) {
         anser -= num;
@@ -48,6 +46,44 @@
         
     }
     return answer;
+
+
+
+
+월간코드 챌린지 - 음양더하기
+int answer = 0;
+for(int i = 0; i < absolutes_len; i++) {
+	if(signs[i] == true) {
+		answer += absoutes[i];
+	} else {
+		answer -= absoutes[i];
+	}
+}
+return answer;
+
+
+
+
+월간코드 챌린지 - 내적
+int answer = 0;
+for(int i = 0; i < a_len; i++) {
+	answer += a[i] * b[i];
+}
+
+
+
+
+월간코드 챌린지 - 3진법 뒤집기
+
+while(true) {
+x = n % (3**i)
+y = n / (3**i)
+z = n / (3**(i-1))
+a += 10**i*y + x;
+
+}
+
+
 
 
 
