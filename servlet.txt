@@ -13,8 +13,28 @@
 
 
 
-===========
+=============
+오류해결방법
 
+ㅇservlet뭔가 안 될때 (서버오류)
+1. 서버를 끈다
+2. File -> Close Project
+3. project 폴더로 이동해서 잘 못된 위치의 .idea폴더있으면 삭제
+4. serblet 폴더의 .idea폴더와 target폴더 삭제 (두 폴더는 자동생성되기에 삭제하여 초기화)
+5. project 열기
+6. maven 탭 열고 clean 실행, 완료 후 install 실행
+7. tomcat 재설정 (edit configuration) - tomcat local 선택
+8. deployment - artifact 선택
+9. server - VMoption => -Dfile.encoding=UTF-8 입력
+10. 저장 및 재실행
+
+ㅇ코드오류 시
+예외문구 첫줄의 끝부분부터 봐라.
+or 주요부분들 값 출력해보기
+or 디버그
+
+
+======================
 
 
 확장자xml은 세팅

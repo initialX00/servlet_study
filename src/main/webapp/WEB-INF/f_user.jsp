@@ -14,7 +14,7 @@
 </head>
 <body>
 <h1>사용자 등록</h1>
-<form action="http://localhost:8080/servlet_study_war/user" method="post">
+<form action="http://localhost:8080/servlet_study_war/user2" method="post">
     <table>
         <tr>
             <td>username</td>

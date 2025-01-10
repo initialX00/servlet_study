@@ -19,11 +19,11 @@ public class E_UserServlet extends HttpServlet {
 
     public void init(ServletConfig config) throws ServletException {
         List<E_User> users = new ArrayList<>();
-        users.add(new E_User("aaa","111","qwer","aaaa@naver.com"));
-        users.add(new E_User("bbb","222","asdf","aaaa@naver.com"));
-        users.add(new E_User("ccc","333","zxcv","aaaa@naver.com"));
-        users.add(new E_User("ddd","444","tyui","aaaa@naver.com"));
-        users.add(new E_User("eee","555","ghjk","aaaa@naver.com"));
+        users.add(new E_User(0, "aaa","111","qwer","aaaa@naver.com"));
+        users.add(new E_User(0, "bbb","222","asdf","aaaa@naver.com"));
+        users.add(new E_User(0, "ccc","333","zxcv","aaaa@naver.com"));
+        users.add(new E_User(0, "ddd","444","tyui","aaaa@naver.com"));
+        users.add(new E_User(0, "eee","555","ghjk","aaaa@naver.com"));
         config.getServletContext().setAttribute("users", users);
     }
 
