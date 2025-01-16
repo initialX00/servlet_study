@@ -11,13 +11,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.awt.print.Book;
 import java.io.IOException;
 
 @WebServlet("/book1")
 public class F_BookServlet extends HttpServlet {
     private F_BookService bookService;
 
+
+    public F_BookServlet() {
+        bookService = F_BookService.getInstance();
+    }
 
 
     @Override
@@ -32,15 +35,21 @@ public class F_BookServlet extends HttpServlet {
         String author = req.getParameter("author");
         String publisher = req.getParameter("publisher");
         String category = req.getParameter("category");
-        String imgurl = req.getParameter("imgurl");
+        String imgUrl = req.getParameter("imgurl");
 
         F_Author authorObj = new F_Author(0, author);
         F_Publisher publisherObj = new F_Publisher(0, publisher);
         F_Category categoryObj = new F_Category(0, category);
-        F_Book book = Book.builder()
-                        .bookName(bookName)
-                                .
+        F_Book book = F_Book.builder()
+                .bookName(bookName)
+                .isbn(isbn)
+                .author(authorObj)
+                .publisher(publisherObj)
+                .category(categoryObj)
+                .bookImgUrl(imgUrl)
+                .build();
 
-        bookService.addBook(Book);
+
+        bookService.addBook(book);
     }
 }

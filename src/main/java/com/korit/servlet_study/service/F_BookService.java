@@ -21,7 +21,7 @@ public class F_BookService {
     public F_Book addBook(F_Book book) {
         bookDao.saveAuthor(book.getAuthor());
         bookDao.savePublisher(book.getPublisher());
-        bookDao.save
+        bookDao.saveBookCategory(book.getCategory());
         return bookDao.saveBook(book).get();
     }
 }
