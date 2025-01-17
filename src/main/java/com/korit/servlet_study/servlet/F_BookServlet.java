@@ -17,11 +17,9 @@ import java.io.IOException;
 public class F_BookServlet extends HttpServlet {
     private F_BookService bookService;
 
-
     public F_BookServlet() {
         bookService = F_BookService.getInstance();
     }
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

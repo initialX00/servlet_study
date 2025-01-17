@@ -10,10 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9c5b96ee-a29e-4bdf-8ca0-e571b203920b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/korit/servlet_study/servlet/G_UserRestServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/korit/servlet_study/dao/F_BookDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/korit/servlet_study/dao/F_BookDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/korit/servlet_study/service/F_BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/korit/servlet_study/service/F_BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/korit/servlet_study/servlet/F_BookServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/korit/servlet_study/servlet/F_BookServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/f_book_study1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/f_book_study1.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,6 +184,8 @@
       <workItem from="1736737829459" duration="623000" />
       <workItem from="1736758442170" duration="23000" />
       <workItem from="1736843109615" duration="13000" />
+      <workItem from="1737023563993" duration="28000" />
+      <workItem from="1737097583341" duration="6428000" />
     </task>
     <servers />
   </component>

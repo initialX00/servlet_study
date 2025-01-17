@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<from action="http://localhost:8080/servlet_study_war_/book1" method="post">
+<from action="http://localhost:8080/servlet_study_war/book1" method="post">
   <input type="text" name="bookName" placeholder="도서명">
   <input type="text" name="isbn" placeholder="isbn">
   <input type="text" name="author" placeholder="저자명">

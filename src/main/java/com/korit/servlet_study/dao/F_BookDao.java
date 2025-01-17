@@ -34,10 +34,10 @@ public class F_BookDao {
         try {
             con = mgr.getConnection();
             String sql = """
-                    insert into author values (default, ?)
+                    insert into author_tb values (default, ?)
                     """;
             ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, author.getAuthorName()); //?에 대입
+            ps.setString(1, author.getAuthorName());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -56,7 +56,7 @@ public class F_BookDao {
         try {
             con = mgr.getConnection();
             String sql = """
-                    insert into publisher values (default, ?)
+                    insert into publisher_tb values (default, ?)
                     """;
             ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, publisher.getPublisherName());
