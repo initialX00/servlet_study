@@ -2,7 +2,7 @@ package com.korit.servlet_study.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korit.servlet_study.entity.E_User;
-import com.korit.servlet_study.entity.F_Book;
+import com.korit.servlet_study.entity.G_Book;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -26,13 +26,13 @@ public class G_UserRestServlet extends HttpServlet {
         String jsonUser = objectMapper.writeValueAsString(user);
         System.out.println(jsonUser);
 
-        F_Book book = F_Book.builder() //G_Book으로 따로 생성해주기
+        G_Book book = G_Book.builder() //G_Book으로 따로 생성해주기
                 .bookId(111)
                 .bookName("1234")
-                .author()
+                .author("백아무개")
                 .publisher("test@mail")
-                .category()
-                .imgUrl()
+                .category("수필")
+                .imgUrl("ㅂㅈㄷㄱ@mail")
                 .build();
 
         String jsonBook = objectMapper.writeValueAsString(book);
