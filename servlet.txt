@@ -97,3 +97,8 @@ setAttribute("키",값(object))
 
 http 프로토콜
 http 상태코드
+
+
+
+
+
