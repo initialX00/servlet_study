@@ -1,7 +1,7 @@
 package com.korit.servlet_study.servlet;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.korit.servlet_study.entity.E_User;
+import com.korit.servlet_study.entity.G_User;
 import com.korit.servlet_study.entity.G_Book;
 
 import javax.servlet.ServletException;
@@ -16,7 +16,7 @@ public class G_UserRestServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        E_User user = E_User.builder()
+        G_User user = G_User.builder()
                 .username("test")
                 .password("1234")
                 .name("테스트")

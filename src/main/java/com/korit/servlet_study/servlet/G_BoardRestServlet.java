@@ -3,6 +3,7 @@ package com.korit.servlet_study.servlet;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.korit.servlet_study.config.DBConnectionMgr;
 import com.korit.servlet_study.dto.G_InsertBoardDto;
+import com.korit.servlet_study.dto.G_ResponseDto;
 import com.korit.servlet_study.service.G_BoardService;
 
 import javax.servlet.ServletException;
@@ -22,8 +23,6 @@ public class G_BoardRestServlet extends HttpServlet {
         boardService = G_BoardService.getInstance();
     }
 
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //문자열을 합치는 StringBuilder(싱글스레드),StringBuffer(멀티스레드)
         StringBuilder stringBuilder = new StringBuilder();
@@ -41,9 +40,15 @@ public class G_BoardRestServlet extends HttpServlet {
         //json을 java객체로 전환
         ObjectMapper objectMapper = new ObjectMapper();
         G_InsertBoardDto insertBoardDto = objectMapper.readValue(stringBuilder.toString(), G_InsertBoardDto.class);
-        System.out.println(insertBoardDto);
 
-        boardService.insertBoard(insertBoardDto);
+        //System.out.println(insertBoardDto);
+
+        G_ResponseDto<?> responseDto = boardService.insertBoard(insertBoardDto);
+        String responseJson = objectMapper.writeValueAsString(responseDto);
+
+        response.setStatus(responseDto.getStatus());
+        response.setContentType("application/json");
+        response.getWriter().println(responseJson);
 
         //클라이언트 <-제이슨-> 톰캣 <-> 서블릿 <-디티오-> 서비스 <-엔티티-> 디에이오
 

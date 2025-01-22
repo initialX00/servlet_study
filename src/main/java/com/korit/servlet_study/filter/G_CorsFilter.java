@@ -15,11 +15,11 @@ public class G_CorsFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;  //다운캐스팅
 
         response.setHeader("Access-Control-Allow-Origin", "*"); //모든 도메인에서 해당 리소스에 접근허용
-        response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE"); //서버에 요청할 수 있는  http메서드 지정
-        response.setHeader("Access-Control-Allow-Headers", "Content-Type"); //요청 시 서버로 보낼 수 있는 헤더들을 지정
+        response.setHeader("Access-Control-Allow-Methods", "*"); //서버에 요청할 수 있는  http메서드 지정
+        response.setHeader("Access-Control-Allow-Headers", "*"); //요청 시 서버로 보낼 수 있는 헤더들을 지정
         response.setHeader("Access-Control-Allow-Credentials", "true"); //클라이언트가 인증된 사용자로 요청을 보낼 수 있게한다. true시 쿠키나 http인증 정보도 포함한다.
 
-        filterChain.doFilter(servletRequest, servletResponse);
+        filterChain.doFilter(servletRequest, servletResponse); //
         //리액트 - 톰캣 - 필터 - 서블렛 - 서비스 - 리포지터리 - db
     }
 

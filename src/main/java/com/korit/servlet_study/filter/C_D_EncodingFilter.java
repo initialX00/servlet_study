@@ -25,7 +25,7 @@ public class C_D_EncodingFilter implements Filter {
         servletResponse.setCharacterEncoding("UTF-8"); //응답 한글 적용
 
         //처리 전
-        filterChain.doFilter(servletRequest, servletResponse); //doGet
+        filterChain.doFilter(servletRequest, servletResponse); //doGet //
         //처리 후
 
         System.out.println("후처리");

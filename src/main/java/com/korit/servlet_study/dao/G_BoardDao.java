@@ -24,7 +24,8 @@ public class G_BoardDao {
         return instance;
     }
 
-    public Optional<G_Board> save(G_Board board) {
+
+    public G_Board save(G_Board board) {
         G_Board insertedBoard = null;
         Connection con = null;
         PreparedStatement ps = null;
@@ -33,7 +34,7 @@ public class G_BoardDao {
             con = dbConnectionMgr.getConnection();
             String sql = """
                     insert into board_tb
-                    values(default, ?, ?)
+                    values(default, ?, ?, ?, ?)
                     """;
             ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, board.getTitle());
@@ -53,7 +54,6 @@ public class G_BoardDao {
             dbConnectionMgr.freeConnection(con, ps);
         }
 
-        return Optional.ofNullable(insertedBoard);
+        return insertedBoard;
     }
-
 }

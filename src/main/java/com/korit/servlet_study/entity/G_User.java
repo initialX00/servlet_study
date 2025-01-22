@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class G_Board {
-    private int boardId;
-    private String title;
-    private String content;
+@Data
+public class G_User {
+    private int userId;
+    private String username;
+    private String password;
+    private String name;
+    private String email;
 }
