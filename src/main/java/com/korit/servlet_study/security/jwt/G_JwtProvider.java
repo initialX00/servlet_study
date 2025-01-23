@@ -1,6 +1,7 @@
 package com.korit.servlet_study.security.jwt;
 
 import com.korit.servlet_study.entity.G_User;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -26,15 +27,40 @@ public class G_JwtProvider {
         return instance;
     }
 
-    private Date getExpiredate() {
+    private Date getExpireDate() {
         return new Date(new Date().getTime() + (1000l * 60 * 60 * 24 * 365));//롱타입으로 기입
     }
     //토큰 생성
     public String generateToken(G_User user) {
         return Jwts.builder()
                 .claim("userId", user.getUserId()) //토큰 설정
-                .setExpiration(getExpiredate()) //유효기간 설정
+                .setExpiration(getExpireDate()) //유효기간 설정
                 .signWith(key, SignatureAlgorithm.HS256) //암호 종류
                 .compact(); //토큰 생성
     }
+
+    //검증
+    public Claims parseToken(String token) {
+        Claims claims = null;
+        try {
+            claims = Jwts.parserBuilder()
+                    .setSigningKey(key)
+                    .build()
+                    .parseClaimsJws(removeBearer(token))
+                    .getBody();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return claims;
+    }
+
+    private String removeBearer(String bearerToken) {
+        String accessToken = null;
+        final String BEARER_KEYWORD = "Bearer ";
+        if(bearerToken.startsWith(BEARER_KEYWORD)) {
+            accessToken = bearerToken.substring(BEARER_KEYWORD.length());
+        }
+            return accessToken;
+    }
+
 }

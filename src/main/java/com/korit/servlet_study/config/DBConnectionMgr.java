@@ -42,7 +42,7 @@ public class DBConnectionMgr {
     private String _driver = "com.mysql.cj.jdbc.Driver",
             _url = "jdbc:mysql://localhost:3306/study",
             _user = "root",
-            _password = "1q2w3e4r!";
+            _password = "1q2w3e4r!"; //비밀번호 틀리 시 sql exception 접근불가
 
     private boolean _traceOn = false;
     private boolean initialized = false;
