@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 //모든경로에 대해 필터 사용
-@WebFilter("*")
+//@WebFilter("*")
 public class G_CorsFilter implements Filter {
 
     //CORS과련 HTTP헤더를 응답에 추가

@@ -5,7 +5,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter("*") //웹자체 필터를 줘서 클래스에서 따로 호출 하지 않는다
+//웹자체 필터를 줘서 클래스에서 따로 호출 하지 않는다
+//@WebFilter("*")
 public class C_D_EncodingFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

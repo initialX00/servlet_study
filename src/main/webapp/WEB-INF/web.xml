@@ -3,4 +3,29 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <filter>
+        <filter-name>C_D_EncodingFilter</filter-name>
+        <filter-class>com.korit.servlet_study.filter.C_D_EncodingFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>G_CorsFilter</filter-name>
+        <filter-class>com.korit.servlet_study.filter.G_CorsFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>G_AuthenticationFilter</filter-name>
+        <filter-class>com.korit.servlet_study.filter.G_AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>C_D_EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>G_CorsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>G_AuthenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

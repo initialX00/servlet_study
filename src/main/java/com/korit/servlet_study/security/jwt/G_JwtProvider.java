@@ -2,6 +2,7 @@ package com.korit.servlet_study.security.jwt;
 
 import com.korit.servlet_study.entity.G_User;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
@@ -43,11 +44,20 @@ public class G_JwtProvider {
     public Claims parseToken(String token) {
         Claims claims = null;
         try {
-            claims = Jwts.parserBuilder()
+//            claims = Jwts.parserBuilder()
+//                    .setSigningKey(key)
+//                    .build()
+//                    .parseClaimsJws(removeBearer(token))
+//                    .getBody();
+
+            JwtParser jwtParser = Jwts.parserBuilder()
                     .setSigningKey(key)
-                    .build()
+                    .build();
+
+            claims = jwtParser
                     .parseClaimsJws(removeBearer(token))
                     .getBody();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -60,7 +70,7 @@ public class G_JwtProvider {
         if(bearerToken.startsWith(BEARER_KEYWORD)) {
             accessToken = bearerToken.substring(BEARER_KEYWORD.length());
         }
-            return accessToken;
+        return accessToken;
     }
 
 }

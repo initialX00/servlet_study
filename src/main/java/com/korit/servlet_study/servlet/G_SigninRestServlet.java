@@ -32,6 +32,7 @@ public class G_SigninRestServlet extends HttpServlet {
             }
         }
 
+        //json문자열을 Dto로 변환
         ObjectMapper objectMapper = new ObjectMapper();
         G_SigninDto signinDto = objectMapper.readValue(stringBuilder.toString(), G_SigninDto.class);
 
@@ -39,6 +40,7 @@ public class G_SigninRestServlet extends HttpServlet {
 
         response.setContentType("application/json");
         response.setStatus(responseDto.getStatus());
+        //Dto를 json으로 변환
         response.getWriter().write(objectMapper.writeValueAsString(responseDto));
 
     }
